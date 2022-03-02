@@ -67,7 +67,7 @@ app.get('/api/animals', (req, res) => {
     res.json(results);
   });
 
-// This allows us to find just one animal similar to query but query allows for multiple search perams
+// This rout allows us to find just one animal similar to query but query allows for multiple search perams
 app.get('/api/animals/:id', (req, res) => {
     const result = findById(req.params.id, animals);
     if (result) {
