@@ -50,6 +50,12 @@ function filterByQuery(query, animalsArray) {
     return filteredResults;
   }
 
+//   returns the element in the array based on id 
+  function findById(id, animalsArray) {
+    const result = animalsArray.filter(animal => animal.id === id)[0];
+    return result;
+  }
+
 // adds the route and endpoint inside the string. The second perameter is a call back function
 app.get('/api/animals', (req, res) => {
     let results = animals;
@@ -60,6 +66,16 @@ app.get('/api/animals', (req, res) => {
     // response being sent
     res.json(results);
   });
+
+// This allows us to find just one animal similar to query but query allows for multiple search perams
+app.get('/api/animals/:id', (req, res) => {
+    const result = findById(req.params.id, animals);
+    if (result) {
+        res.json(result);
+      } else {
+        res.send(404);
+      }
+  });   
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
