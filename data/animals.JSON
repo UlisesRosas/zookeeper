@@ -144,6 +144,46 @@
         "hungry"
       ],
       "id": "13"
+    },
+    {
+      "name": "Theez",
+      "species": "Nuts",
+      "diet": "piscivore",
+      "personalityTraits": [
+        "zany",
+        "goofy"
+      ],
+      "id": "15"
+    },
+    {
+      "name": "Theez",
+      "species": "Nuts",
+      "diet": "piscivore",
+      "personalityTraits": [
+        "zany",
+        "goofy"
+      ],
+      "id": "15"
+    },
+    {
+      "name": "Theez",
+      "species": "Nuts",
+      "diet": "piscivore",
+      "personalityTraits": [
+        "zany",
+        "goofy"
+      ],
+      "id": "17"
+    },
+    {
+      "name": "Theez",
+      "species": "Nuts",
+      "diet": "piscivore",
+      "personalityTraits": [
+        "zany",
+        "goofy"
+      ],
+      "id": "17"
     }
   ]
 }

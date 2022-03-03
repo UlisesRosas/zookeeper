@@ -17,6 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
 
+// it prevents the public fils to be available without an endpoint by making them static recources 
+app.use(express.static('public'));
+
 // route for front end to request data from
 const { animals } = require('./data/animals');
 
@@ -132,6 +135,30 @@ app.post('/api/animals', (req, res) => {
     }
   });
 
+  
+//  '/' route takes us to the home page of the server
+app.get('/', (req, res) => {
+    // this is going to send HTML file to client instead of json object
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+// connecting the front end with this rout
+app.get('/animals', (req, res) => {
+    // sending htm to client instead of json object
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+
+// connectiong th front end with this rout
+app.get('/zookeepers', (req, res) => {
+    // sending html to client instead if json respons
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+
+// **** this route with a wild card '*' has to be the last card or else it takes presidence over every route
+// this would catch if using endpoints for routes that dont exist 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+  });
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
